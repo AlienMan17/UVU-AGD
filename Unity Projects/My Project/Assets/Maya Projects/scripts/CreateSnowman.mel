@@ -1,0 +1,31 @@
+//Create a function that can generate a sphere and move its position, with options to edit the radius, name, and both subdivision axis'
+global proc createSphereAndMove(float $radius, float $moveX, float $moveY, float $moveZ, string $name, int $subDivX, int $subDivY){
+    polySphere -radius $radius -subdivisionsX $subDivX -subdivisionsY $subDivY -axis 0 1 0 -createUVs 2 -constructionHistory 1 -name $name;
+    move -relative -objectSpace -worldSpaceDistance  $moveX $moveY $moveZ;
+}
+
+//Create the snowman body
+createSphereAndMove(5, 0, 5, 0, "lowerSnowball", 20, 20);
+createSphereAndMove(4, 0, 11, 0, "middleSnowball", 20, 20);
+createSphereAndMove(3, 0, 16, 0, "upperSnowball", 20, 20);
+
+//Create the buttons
+createSphereAndMove(0.5, 4.5, 3, 0, "bottomButton", 12, 14);
+createSphereAndMove(0.4, 4.8, 6.5, 0, "lowerButton", 12, 14);
+createSphereAndMove(0.3, 4, 11, 0, "middleButton", 12, 14);
+
+//Create the eyes
+createSphereAndMove(0.3, 2.3, 16.7, 1.5, "leftEye", 12, 12);
+createSphereAndMove(0.3, 2.4, 16.4, -1.5, "rightEye", 12, 12);
+
+//Create a mouth
+createSphereAndMove(0.25, 2.25, 15.3, 1.9, "Mouth1", 10, 10);
+createSphereAndMove(0.25, 2.5, 15, 1.1, "Mouth2", 10, 10);
+createSphereAndMove(0.25, 2.65, 14.7, 0.15, "Mouth3", 10, 10);
+createSphereAndMove(0.25, 2.55, 15, -1, "Mouth4", 10, 10);
+createSphereAndMove(0.25, 2.3, 15.4, -1.8, "Mouth5", 10, 10);
+
+//Create a carrot nose
+
+
+
