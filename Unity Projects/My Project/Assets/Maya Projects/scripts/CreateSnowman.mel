@@ -26,6 +26,7 @@ createSphereAndMove(0.25, 2.55, 15, -1, "Mouth4", 10, 10);
 createSphereAndMove(0.25, 2.3, 15.4, -1.8, "Mouth5", 10, 10);
 
 //Create a carrot nose
-
-
+polyCone -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1 -name "carrotNose";
+move -relative -objectSpace -worldSpaceDistance 3 16 0;
+rotate -relative -objectSpace -forceOrderXYZ 0 0 -90;
 
