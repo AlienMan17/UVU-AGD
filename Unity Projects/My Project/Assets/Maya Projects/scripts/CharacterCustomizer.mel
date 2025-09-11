@@ -1,0 +1,64 @@
+string $headTypes[] = {"Sphere", "Cone", "Cube"};
+
+/*
+    Edit the variables below to customize a character. 
+*/
+
+string $headShape = "Cone"; //must be a string from the headTypes array
+float $size = 4; //scale
+float $headRatio = 1; //the amount that the head's size will be divided by
+float $torsoHeight = 7;
+float $legHeight = 6;
+int $isWalking = 0; //determines if the legs will be rotated
+
+
+proc CreateCharacter(string $hTypes[], string $head, float $scale, float $ratio, float $tHeight, float $lHeight, int $walking){
+    //Creates the head first
+    if ($head == $hTypes[0]) {
+        polySphere -radius ($scale/$ratio) -subdivisionsX 15 -subdivisionsY 15 -axis 0 1 0 -createUVs 2 -constructionHistory 1 -name ($head +" Head");   
+        move -relative -objectSpace -worldSpaceDistance 0 ($scale + $tHeight + $lHeight) 0;
+    }
+    else if ($head == $hTypes[1]) {
+        polyCone -r ($scale/2) -h ($scale*1.5) -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1 -name ($head +" Head");
+        move -relative -objectSpace -worldSpaceDistance 0 (($scale/2) + $tHeight + $lHeight) 0;
+    }
+    else if ($head == $hTypes[2]) {
+        polyCube -width $scale -height $scale -depth $scale -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1 -name ($head +" Head");
+        move -relative -objectSpace -worldSpaceDistance 0 (($scale/2) + $tHeight + $lHeight) 0;
+    } 
+    else {
+        print("Invalid head type. Specify a string from the headTypes array."); //prints error for invalid value
+    }
+
+    //Now creates the torso
+    polyCylinder -radius $scale -height $tHeight -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1 -name "legs";
+    move -relative -objectSpace -worldSpaceDistance 0 (($tHeight/2) + $lHeight) 0;
+
+    //Next creates the arms
+    polyCylinder -radius ($scale/3) -height ($tHeight/1.5) -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1 -name "LeftArm";
+    move -relative -objectSpace -worldSpaceDistance ($scale) ($tHeight + $lHeight - ($tHeight/4)) 0;
+    polyCylinder -radius ($scale/3) -height ($tHeight/1.5) -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1 -name "RightArm";
+    move -relative -objectSpace -worldSpaceDistance (-$scale) ($tHeight + $lHeight - ($tHeight/4)) 0;
+
+    //Finally creates the legs
+    if (!$walking) {
+        polyCube -width $scale -height $lHeight -depth $scale -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1 -name "LeftLeg";
+        move -relative -objectSpace -worldSpaceDistance ($scale/1.5) ($lHeight/2) 0;
+        polyCube -width $scale -height $lHeight -depth $scale -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1 -name "RightLeg";
+        move -relative -objectSpace -worldSpaceDistance (-$scale/1.5) ($lHeight/2) 0;
+    }
+    else if ($walking) {
+        polyCube -width $scale -height $lHeight -depth $scale -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1 -name "LeftLeg";
+        move -relative -objectSpace -worldSpaceDistance ($scale/1.5) ($lHeight/2) ($scale/2);
+        rotate -relative -objectSpace -forceOrderXYZ 45 180 0 ;
+        polyCube -width $scale -height $lHeight -depth $scale -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1 -name "RightLeg";
+        rotate -relative -objectSpace -forceOrderXYZ 45 180 0 ;
+        move -relative -objectSpace -worldSpaceDistance ($scale/1.5) ($lHeight/2) (-$scale/2);
+    }
+    else {
+        print("Please specify a bool(1 or 0) value for the variable, isWalking"); //prints error for invalid value
+    }
+}
+
+
+CreateCharacter($headTypes, $headShape, $size, $headRatio, $torsoHeight, $legHeight, $isWalking);
