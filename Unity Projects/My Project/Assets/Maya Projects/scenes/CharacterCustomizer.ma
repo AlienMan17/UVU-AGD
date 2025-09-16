@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: CharacterCustomizer.ma
-//Last modified: Wed, Sep 10, 2025 07:30:42 PM
+//Last modified: Wed, Sep 10, 2025 07:37:25 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
@@ -11,12 +11,12 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "E40BCEE7-4376-05ED-B528-CFB4A8BE13CE";
+fileInfo "UUID" "2B996542-4F85-5A5F-7BC3-A98E6BEF7E16";
 createNode transform -s -n "persp";
 	rename -uid "1B317138-416D-08F8-6049-D2804A8D17C1";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 5.6990737396521176 9.3010335280752674 -34.135696965075006 ;
-	setAttr ".r" -type "double3" 2.6616472798593329 -1994.9999999984109 0 ;
+	setAttr ".t" -type "double3" 12.08595134354319 17.489417949789456 -31.037563987395366 ;
+	setAttr ".r" -type "double3" -11.138352720140698 -2006.9999999984086 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8D4CAE18-4CC1-3345-9461-97B2B95F1780";
 	setAttr -k off ".v" no;
