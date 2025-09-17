@@ -1,0 +1,68 @@
+/*
+Need the following parameters for function
+-Number of stairs --> stepAmt
+-Stair length --> stepLength
+-Stair width --> stepWidth
+-Stair height --> stepHeight
+-Stair pivot point or offset --> pivotOffset
+-Step height --> stepDistance
+-Step rotation --> spiralRotation
+*/
+
+
+proc GenerateStaircase(int $stepAmt, float $stepLength, float $stepWidth, float $stepHeight, float $pivotOffset, float $stepDistance, float $spiralRotation, int $addCenterPillar) {
+    //Create a pillar for the stairs to wrap around if desired
+    if ($addCenterPillar) {
+        polyCylinder -radius $pivotOffset -height ($stepHeight + ($stepDistance*$stepAmt)) -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1 -name "StaircasePillar";
+        move -relative -worldSpaceDistance ($pivotOffset + ($stepLength/2)) (($stepHeight + ($stepDistance*$stepAmt))/2) 0;//moves the cyllinder to where the stair pivot is, then moves up half its hieght to be on the grid
+    }
+
+    //Runs a while loop to create the staircase
+    int $stepCount = 0; //Creates a local variable to count the steps made
+    while ($stepCount < $stepAmt) {
+
+        polyCube -width $stepLength -height $stepHeight -depth $stepWidth -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1 -name ("Step" + $stepCount);
+        
+        //Does a check that only affects the first step, since the step distance shouldn't affect the first stair
+        if ($stepCount == 0) {
+            move -relative -worldSpaceDistance  0 ($stepHeight/2) 0;
+        } else {
+            move -relative -worldSpaceDistance  0 (($stepHeight/2) + ($stepDistance*$stepCount)) 0;
+        }
+
+        //Moves the stair pivot, and rotates around it
+        move -r ($pivotOffset + ($stepLength/2)) 0 0 (("Step" + $stepCount) + ".scalePivot") (("Step" + $stepCount) + ".rotatePivot");
+        rotate -relative -objectSpace -forceOrderXYZ 0 ($spiralRotation*$stepCount) 0;
+        $stepCount++;
+    }
+    $stepCount = 0;
+}
+
+
+/*
+Again, order of parameters is Step Amount(Int), Step Length(Float), Step Width(Float), Step Height(Float), Pivot Offset(Float), Step Distance(Float), Rotation(Float), Add Pillar(Bool)
+
+Pivot parameter($pivotOffset) - How far away the pivot will be horizontally, widens or shrinks spiral
+Step Distance perameter($stepDistance) - How far away the steps will be from each other vertically
+Rotation parameter($spiralRotation) - How much the steps will rotate, incrementally, around the pivot
+
+As a final tip if the StepAmt * rotation = 360, there will be better results
+*/
+
+
+//Creates a standard spiral staircase
+GenerateStaircase(20, 4, 2.5, 0.5, 1, 0.5, 18, 0);
+
+
+/*Creates the above staircase with a center pillar
+
+GenerateStaircase(20, 4, 3, 0.5, 1, 0.5, 18, 1);
+move -relative -worldSpaceDistance 10 0 0;
+*/
+
+
+/*Generates a staircase going around a tower
+
+GenerateStaircase(100, 6, 3.5, 1.5, 50, 1, 3.6, 1);
+move -relative -worldSpaceDistance -100;
+*/
