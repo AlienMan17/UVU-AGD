@@ -19,7 +19,6 @@ public class CompareIntData : MonoBehaviour
     private void InvokeEvent(UnityEvent unityEvent)
     {
         unityEvent.Invoke();
-        print("event");
     }
 
 
@@ -32,17 +31,15 @@ public class CompareIntData : MonoBehaviour
 
     private void Response()
     {
-        print("Started response");
 
         if (intData == null)
         {
-            print("IntData is invalid");
+            Debug.Log("IntData is invalid");
         }
 
         if (requiredValue.Value <= intData.Value)
         {
             InvokeEvent(responseEvent);
-            print("You win!");
         }
     }
 }
