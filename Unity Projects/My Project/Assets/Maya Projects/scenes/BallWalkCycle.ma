@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: BallWalkCycle.ma
-//Last modified: Sat, Sep 27, 2025 05:17:42 PM
+//Last modified: Sat, Sep 27, 2025 05:33:55 PM
 //Codeset: 1252
 file -rdi 1 -ns "Ultimate_Walker_IK_v1_0_1" -rfn "Ultimate_Walker_IK_v1_0_1RN"
 		 -op "v=0;" -typ "mayaAscii" "C:/Users/trevl/Documents/UVU/UVU-AGD/Unity Projects/My Project/Assets/Maya Projects//scenes/Ultimate_Walker_IK_v1.0.1.ma";
@@ -16,7 +16,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "7634F0D8-4F4F-64C2-0178-2FB140E7FEC5";
+fileInfo "UUID" "9DF3E1FB-41AD-AA6F-DE6E-D2AC0A63A9C2";
 createNode transform -s -n "persp";
 	rename -uid "EF1B54D9-43B5-9DE4-074B-0C9A29315814";
 	setAttr ".v" no;
@@ -210,7 +210,7 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "18683959-435D-E2F1-A9BF-878A3B6E5A17";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 32 -ast 1 -aet 300 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 31 -ast 1 -aet 31 ";
 	setAttr ".st" 6;
 createNode shapeEditorManager -n "shapeEditorManager";
 	rename -uid "5579E8CA-4D48-8E38-951B-CDBA5695DD6C";
@@ -575,8 +575,8 @@ select -ne :time1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr ".o" 16;
-	setAttr ".unw" 16;
+	setAttr ".o" 31;
+	setAttr ".unw" 31;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".vac" 2;
 	setAttr ".etmr" no;
