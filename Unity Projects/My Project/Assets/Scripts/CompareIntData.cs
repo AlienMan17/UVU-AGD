@@ -6,6 +6,7 @@ public class CompareIntData : MonoBehaviour
 {
     public UnityEvent responseEvent;
     public IntData requiredValue;
+    public int requiredValueOptional;
     public IntData intData;
     public GameAction action;
 
@@ -37,9 +38,19 @@ public class CompareIntData : MonoBehaviour
             Debug.Log("IntData is invalid");
         }
 
-        if (requiredValue.Value <= intData.Value)
+        if (requiredValue != null)
         {
-            InvokeEvent(responseEvent);
+            if (requiredValue.Value <= intData.Value)
+            {
+                InvokeEvent(responseEvent);
+            }
+        } 
+        else
+        {
+            if (requiredValueOptional <= intData.Value)
+            {
+                InvokeEvent(responseEvent);
+            }
         }
     }
 }
