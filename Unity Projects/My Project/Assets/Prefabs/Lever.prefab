@@ -190,18 +190,6 @@ MonoBehaviour:
   awakeEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: ad1f24815ac801648bfda04104281af3, type: 2}
-        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
-        m_MethodName: set_Value
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7679660087553551881}
         m_TargetAssemblyTypeName: UnityEngine.Transform, UnityEngine
         m_MethodName: LookAt
@@ -217,18 +205,6 @@ MonoBehaviour:
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 15ff538f48f3f254c921525e49b8e6e2, type: 2}
-        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
-        m_MethodName: RaiseAction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4823022554570812635}
         m_TargetAssemblyTypeName: UnityEngine.BoxCollider, UnityEngine
         m_MethodName: set_isTrigger
@@ -248,6 +224,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 4573942759658248336}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 503d59144bf34484292c7a0a8a3e618b, type: 2}
+        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
+        m_MethodName: RaiseAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
