@@ -1,0 +1,141 @@
+/*
+-Separate funtion for each mathmatical operation(+, -, *, /, ^), along with Average and Median
+-Returns float value
+-Calculate all arguments (So that the size of the array won't matter)
+-Returns the value with a description of what was preformed
+*/
+
+//Loops through the array, adding each number together 
+global proc float Sum(float $inputNums[]) {
+    float $result = 0;
+    for ($i=0; $i<size($inputNums); $i++){
+        $result += $inputNums[$i];
+    }
+    return $result;
+}
+
+//Loops through the array, subtracting each number together 
+global proc float Difference(float $inputNums[]) {
+    float $result = 0;
+    for ($i=0; $i<size($inputNums); $i++){
+        $result -= $inputNums[$i];
+    }
+    return $result;
+}
+
+//Loops through the array, multiplying each number
+global proc float Multiply(float $inputNums[]) {
+    float $result = 1;
+    for ($i=0; $i<size($inputNums); $i++){
+        $result *= $inputNums[$i];
+    }
+    return $result;
+}
+
+//Loops through the array, dividing the first number by each other number. Also makes sure to catch any 0's in the array
+global proc float Divide(float $inputNums[]) {
+    float $result = $inputNums[0];
+    for ($i=0; $i<size($inputNums); $i++){
+        if ($inputNums[$i] == 0) {
+            print("Cannot divide by zero.\n");
+        } else {
+            $result /= $inputNums[$i];
+        }
+    }
+    return $result;
+}
+
+//Loops through the array, the current index has a power of the next index applied to it (doesn't loop through the last element in the list as there is nothing after it so it would be a power of null)
+//Unlike the others this procedure sums the result of each index rather than using the previous value. This is to avoid potentially huge numbers with larger array inputs.
+global proc float Power(float $inputNums[]) {
+    float $result;
+    for ($i=0; $i<(size($inputNums)-1); $i++) {
+        $result += pow($inputNums[$i], $inputNums[$i+1]);
+    }
+    return $result;
+}
+
+//Gets an average of the array
+global proc float Average(float $inputNums[]) {
+    float $result = 0;
+    float $total = `Sum($inputNums)`;
+    $result = $total / (size($inputNums));
+    return $result;
+}
+
+//Gets the median of the array, and makes sure to account for odd or even array sizes
+//If the median looks off from the inputted array that's because the array is sorted before selecting index's
+global proc float Median(float $inputNums[]) {
+    float $sortedNums[] = `sort $inputNums`;
+    float $remainder = (size($sortedNums) % 2);
+    int $tempMedian = size($sortedNums)/2; //stores a value reapted in the procedure
+    float $result = 0;
+    if ($remainder == 0) {
+        $result = ($sortedNums[$tempMedian-1] + $sortedNums[$tempMedian]) / 2;
+    } else {
+        $result = $sortedNums[(size($sortedNums)-1)/2];
+    }
+        return $result;
+}
+
+//Takes an array of numbers and does a mathematical operation based on the type set with a string
+global proc string Calculator(string $selectedFunct, float $inputArray[]) {
+    float $result;
+    if ($selectedFunct == "add") {
+        $result = Sum($inputArray);
+    } else if ($selectedFunct == "subtract") {
+        $result = Difference($inputArray);
+    } else if ($selectedFunct == "multiply") {
+        $result = Multiply($inputArray);
+    } else if ($selectedFunct == "divide") {
+        $result = Divide($inputArray);
+    } else if ($selectedFunct == "average") {
+        $result = Average($inputArray);
+    } else if ($selectedFunct == "median") {
+        $result = Median($inputArray);
+    } else if ($selectedFunct == "power"){ 
+        $result = Power($inputArray);
+    } else { 
+        print("Invalid Function\n");
+    }
+    
+    string $returnString = "The " + $selectedFunct + " operation was preformed on the number(s), " + floatArrayToString($inputArray, ", ") + " resulting in: " + $result + "\n";
+    //returns a string in this script because the operations have been complete, and it allows for a message like the one above
+    return $returnString;
+}
+
+//A function to run through examples easier
+global proc Calculate(float $array[]) {
+    print(Calculator("add", $array) + "\n");
+    print(Calculator("subtract", $array) + "\n");
+    print(Calculator("multiply", $array) + "\n");
+    print(Calculator("divide", $array) + "\n");
+    print(Calculator("power", $array) + "\n");
+    print(Calculator("average", $array) + "\n");
+    print(Calculator("median", $array) + "\n");
+}
+
+print("Array 1 -\n");
+Calculate({1, 2, 3});
+print("Array 2 -\n");
+Calculate({4, 6, 0, 8});
+print("Array 3 -\n");
+Calculate({4, 8, 2, 1, 1, 3});
+
+global proc OpenCalculator() {
+
+    string $mWindow = "calculator";
+    //closes all pre-existing windows with the same given name
+    if (`window -exists $mWindow`)
+    {
+        CloseWindow($mWindow);
+    }
+
+    $mWindow = `window -title "Calculator" -widthSize 400 400 -sizable 1 $mWindow`;
+        string $mColumn = `columnLayout -parent $mWindow`;
+            text "Result.";
+            optionVar -stringValue -editable 0;
+
+        string $resultBox = `optionVar -q "Result"`;
+
+}
