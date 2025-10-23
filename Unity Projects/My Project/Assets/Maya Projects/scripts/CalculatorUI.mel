@@ -2,7 +2,7 @@
 -Separate funtion for each mathmatical operation(+, -, *, /, ^), along with Average and Median
 -Returns float value
 -Calculate all arguments (So that the size of the array won't matter)
--Returns the value with a description of what was preformed
+-Returns the value based on user input via a window
 */
 
 //Loops through the array, adding each number together 
@@ -99,43 +99,157 @@ global proc string Calculator(string $selectedFunct, float $inputArray[]) {
         print("Invalid Function\n");
     }
     
-    string $returnString = "The " + $selectedFunct + " operation was preformed on the number(s), " + floatArrayToString($inputArray, ", ") + " resulting in: " + $result + "\n";
+    string $returnString = $result;
     //returns a string in this script because the operations have been complete, and it allows for a message like the one above
     return $returnString;
 }
 
-//A function to run through examples easier
-global proc Calculate(float $array[]) {
-    print(Calculator("add", $array) + "\n");
-    print(Calculator("subtract", $array) + "\n");
-    print(Calculator("multiply", $array) + "\n");
-    print(Calculator("divide", $array) + "\n");
-    print(Calculator("power", $array) + "\n");
-    print(Calculator("average", $array) + "\n");
-    print(Calculator("median", $array) + "\n");
-}
-
-print("Array 1 -\n");
-Calculate({1, 2, 3});
-print("Array 2 -\n");
-Calculate({4, 6, 0, 8});
-print("Array 3 -\n");
-Calculate({4, 8, 2, 1, 1, 3});
-
-global proc OpenCalculator() {
-
-    string $mWindow = "calculator";
-    //closes all pre-existing windows with the same given name
-    if (`window -exists $mWindow`)
-    {
-        CloseWindow($mWindow);
+/*
+global proc AddNumberToResult(float $num) {
+    //grabs the needed variable information
+    string $result = `optionVar -q "Result"`;
+    string $resultBox[] = `optionVar -q "Results"`;
+    float $inputtedNumbers[] = `optionVar -q "Numbers"`;
+    int $index = `optionVar -q "Index"`;
+    int $indexCount = `optionVar -q "Index_Count"`;
+    int $listNumbers = `optionVar -q "List_Numbers"`;
+    //checks if median or average was used, then proceeds accordingly
+    if ($listNumbers) {
+        $index++;
+        $indexCount++;
+        $inputtedNumbers[$index] = $num;
+        $resultBox[$indexCount] = $num + ", ";
+    } else {
+        $inputtedNumbers[$index] += $num;
+        $resultBox[$indexCount] = $num;
+        $index++;
+        $indexCount++;
     }
 
-    $mWindow = `window -title "Calculator" -widthSize 400 400 -sizable 1 $mWindow`;
-        string $mColumn = `columnLayout -parent $mWindow`;
-            text "Result.";
-            optionVar -stringValue -editable 0;
-
-        string $resultBox = `optionVar -q "Result"`;
-
+    $result = stringArrayToString($resultBox, " ");
 }
+
+
+global proc ClearResults() {
+    optionVar -clear "Results";
+    optionVar -clear "Numbers";
+    optionVar -stringValue "Operation" "";
+    optionVar -intValue "Index" 0;
+    optionVar -intValue "Index_Count" 0;
+    optionVar -intValue "List_Numbers" 0;
+    optionVar -stringValue "Result" "";
+}
+
+//Launches a window with buttons to trigger certain calculate functions
+global proc OpenCalculator() {
+
+    string $mWindow = "Calculator";
+
+    //closes all pre-existing windows with the same given name
+    if (`window -exists $mWindow`) {
+        deleteUI -window $mWindow;
+    }
+
+    optionVar -stringArray "Results";
+    optionVar -floatArray "Numbers";
+    optionVar -stringValue "Operation" "";
+    optionVar -intValue "Index" 0;
+    optionVar -intValue "Index_Count" 0;
+    optionVar -intValue "List_Numbers" 0;
+
+    string $result = `optionVar -q "Result"`;
+    string $resultBox[] = `optionVar -q "Results"`;
+    float $inputtedNumbers[] = `optionVar -q "Numbers"`;
+    string $operationType = `optionVar -q "Operation"`;
+    int $index = `optionVar -q "Index"`;//Fixed index, increments when only numbers are selected
+    int $indexCount = `optionVar -q "Index_Count"`;//Index changes with any button press
+    int $listNumbers = `optionVar -q "List_Numbers"`;
+
+    $mWindow = `window -title "Calculator" -widthHeight 400 650 -sizeable 1 $mWindow`;
+        string $mColumn = `columnLayout -parent $mWindow -width 400`;
+            text -parent $mColumn "Select any numbers, numbers selected after a previous number become one, and finally, numbers are seperated through operations.";
+            text -parent $mColumn "Result.";
+            optionVar -stringValue "Result" `textField -editable 0`;
+            text -parent $mColumn "Average, and Median must be clicked before entering numbers.";
+            string $buttonLayout = `columnLayout -parent $mColumn`;
+                string $buttonRowOne = `rowLayout -parent $buttonLayout -numberOfColumns 4`;
+                    button -parent $buttonRowOne -label "Power" -command ($operationType + " = 'power'; " + $indexCount + "++; " + $resultBox[$indexCount] + " = '^ '; " + $result + " = " + stringArrayToString($resultBox, " "));
+                    button -parent $buttonRowOne -label "Median" -command ($operationType + " = 'median'; " + $listNumbers + " = 1; " + $resultBox[$indexCount] + " = 'Median of-- '; " + $result + " = " + stringArrayToString($resultBox, " "));
+                    button -parent $buttonRowOne -label "Average" -command ($operationType + " = 'average'; " + $listNumbers + " = 1; " + $resultBox[$indexCount] + " = 'Average of-- '; " + $result + " = " + stringArrayToString($resultBox, " "));
+                    button -parent $buttonRowOne - label "Clear" -command ("ClearResults(); " + $result + " = " + stringArrayToString($resultBox, " "));
+                string $buttonRowTwo = `rowLayout -parent $buttonLayout -numberOfColumns 4`;
+                    button -parent $buttonRowTwo -label "1" -command("AddNumberToResult(1)");
+                    button -parent $buttonRowTwo -label "2" -command("AddNumberToResult(2)");
+                    button -parent $buttonRowTwo -label "3" -command("AddNumberToResult(3)");
+                    button -parent $buttonRowTwo -label "+" -command($operationType + " = 'add'; " + $indexCount + "++; " + $resultBox[$indexCount] + " = '+ '; " + $result + " = " + stringArrayToString($resultBox, " "));
+                string $buttonRowThree = `rowLayout -parent $buttonLayout -numberOfColumns 4`;
+                    button -parent $buttonRowThree -label "4" -command("AddNumberToResult(4)");
+                    button -parent $buttonRowThree -label "5" -command("AddNumberToResult(5)");
+                    button -parent $buttonRowThree -label "6" -command("AddNumberToResult(6)");
+                    button -parent $buttonRowThree -label "-" -command($operationType + " = 'subtract'; " + $indexCount + "++; " + $resultBox[$indexCount] + " = '- '; " + $result + " = " + stringArrayToString($resultBox, " "));
+                string $buttonRowFour = `rowLayout -parent $buttonLayout -numberOfColumns 4`;
+                    button -parent $buttonRowFour -label "7" -command("AddNumberToResult(7)");
+                    button -parent $buttonRowFour -label "8" -command("AddNumberToResult(8)");
+                    button -parent $buttonRowFour -label "9" -command("AddNumberToResult(9)");
+                    button -parent $buttonRowFour -label "*" -command($operationType + " = 'multiply'; " + $indexCount + "++; " + $resultBox[$indexCount] + " = '* '; " + $result + " = " + stringArrayToString($resultBox, " "));
+                string $buttonRowFive = `rowLayout -parent $buttonLayout -numberOfColumns 3`;
+                    button -parent $buttonRowFive -label "0" -command("AddNumberToResult(0)");
+                    button -parent $buttonRowFive -label "/" -command($operationType + " = 'multiply'; " + $indexCount + "++; " + $resultBox[$indexCount] + " = '/ '; " + $result + " = " + stringArrayToString($resultBox, " "));
+                    button -parent $buttonRowFive -label "Calculate" -command ("Calculator(" + $operationType + ", " + floatArrayToString($inputtedNumbers, ", ") + "); " + $listNumbers + " = 0; " + $result + " = " + stringArrayToString($resultBox, " "));
+
+    showWindow $mWindow;
+}
+
+OpenCalculator();
+*/
+
+
+
+
+//Here is a simple example to show I understand the assignment, just wanted to try it more robustly above
+
+
+
+
+//The function below works by entering a any amount of numbers, clicking the "Next number" button to add the float to an array. The array is then stored until an operation button is clicked.
+
+global proc AppendAsFloat(){
+    string $result = `optionVar -q "Result"`;
+    float $floatResult = `floatField -q -value $result`;
+    optionVar -floatValueAppend "Nums" $floatResult;
+}
+
+
+global proc CalculateWindow()
+{
+    string $mWindow = "Calculator";
+
+    //closes all pre-existing windows with the same given name
+    if (`window -exists $mWindow`) {
+        deleteUI -window $mWindow;
+    }
+
+    optionVar -floatArray "Nums";
+
+
+    $mWindow = `window -title "Calculator" -widthHeight 400 650 -sizeable 1 $mWindow`;
+        string $mColumn = `columnLayout -parent $mWindow -width 400`;
+            text -parent $mColumn "Enter any number below and click \"Next Number\", when finished adding numbers click an operator to be used on the list of numbers.";
+            string $mRow = `rowLayout -parent $mColumn`;
+            optionVar -stringValue "Result" `floatField -parent $mColumn`;
+            button -parent $mRow -label "Next number." -command ("AppendAsFloat()");
+            string $buttonRowOne = `rowLayout -parent $mColumn -numberOfColumns 4`;
+                button -parent $buttonRowOne -label "Median" - command ("print(Calculator(\"median\", `optionVar -q \"Nums\"`)\n)");
+                button -parent $buttonRowOne -label "Average" - command ("print(Calculator(\"average\", `optionVar -q \"Nums\"`)\n)");
+                button -parent $buttonRowOne -label "Power" - command ("print(Calculator(\"power\", `optionVar -q \"Nums\"`)\n)");
+                button -parent $buttonRowOne -label "Add" - command ("print(Calculator(\"add\", `optionVar -q \"Nums\"`)\n)");
+            string $buttonRowTwo = `rowLayout -parent $mColumn -numberOfColumns 4`;
+                button -parent $buttonRowTwo -label "Subtract" - command ("print(Calculator(\"subtract\", `optionVar -q \"Nums\"`)\n)");
+                button -parent $buttonRowTwo -label "Multiply" - command ("print(Calculator(\"multiply\", `optionVar -q \"Nums\"`)\n)");
+                button -parent $buttonRowTwo -label "Divide" - command ("print(Calculator(\"divide\", `optionVar -q \"Nums\"`)\n)");
+                button -parent $buttonRowTwo -label "Clear" - command ("optionVar -clearArray \"Nums\"");
+
+    showWindow $mWindow;
+}
+
+CalculateWindow();
