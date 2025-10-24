@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
-//Name: KnightfallBlocked.ma
-//Last modified: Thu, Oct 23, 2025 08:10:59 PM
+//Name: KnightfallBlocked_01.ma
+//Last modified: Thu, Oct 23, 2025 08:11:27 PM
 //Codeset: 1252
 file -rdi 1 -ns "GenericMesh_EdgeFlow" -rfn "GenericMesh_EdgeFlowRN" -op "v=0;"
 		 -typ "mayaAscii" "C:/Users/trevl/Documents/UVU/UVU-AGD/Unity Projects/My Project/Assets/Maya Projects//scenes/References/GenericMesh_EdgeFlow.ma";
@@ -18,7 +18,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "2F3D5D91-4029-ECDE-CADB-F3BDC6D299E1";
+fileInfo "UUID" "438AAC54-4A1D-221E-1B87-BD91872942F0";
 createNode transform -s -n "persp";
 	rename -uid "CB7B9574-416C-D924-5C3F-9DABB96CEDFB";
 	setAttr ".v" no;
@@ -2074,4 +2074,4 @@ connectAttr "groupId2.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId3.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId4.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId5.msg" ":initialShadingGroup.gn" -na;
-// End of KnightfallBlocked.ma
+// End of KnightfallBlocked_01.ma
