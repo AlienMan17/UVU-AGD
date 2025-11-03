@@ -172,7 +172,6 @@ GameObject:
   - component: {fileID: 674706623567392610}
   - component: {fileID: 4984025041483692562}
   - component: {fileID: 7295516695798528074}
-  - component: {fileID: 7866399216500861037}
   m_Layer: 0
   m_Name: Damager
   m_TagString: Untagged
@@ -214,7 +213,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 0.5, z: 2}
+  m_Size: {x: 3.5, y: 0.5, z: 3.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7295516695798528074
 MonoBehaviour:
@@ -241,48 +240,6 @@ MonoBehaviour:
   triggerEnterRepeatEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 6d1d05c55ed71b44ea095d4d77d03161, type: 2}
-        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  triggerEnterEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerHoldTime: 0.01
-  repeatHoldTime: 1
-  canRepeat: 1
-  canRepeatWithLimits: 0
-  repeatLimit: 10
---- !u!114 &7866399216500861037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7560676061260210815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: 6d1d05c55ed71b44ea095d4d77d03161, type: 2}
-  startEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  respondEvent:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 11400000, guid: b1aa1f54744e65544b69576c40e1c083, type: 2}
         m_TargetAssemblyTypeName: FloatData, Assembly-CSharp
         m_MethodName: UpdateValue
@@ -307,10 +264,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  respondLateEvent:
+  triggerEnterEndEvent:
     m_PersistentCalls:
       m_Calls: []
-  holdTime: 0.1
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerHoldTime: 0.01
+  repeatHoldTime: 1
+  canRepeat: 1
+  canRepeatWithLimits: 0
+  repeatLimit: 10
 --- !u!1001 &3223297068793927769
 PrefabInstance:
   m_ObjectHideFlags: 0
