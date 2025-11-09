@@ -7223,7 +7223,7 @@ Transform:
   m_GameObject: {fileID: 1035932787}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17544599, y: -0.043740675, z: 0.007802984, w: 0.983486}
-  m_LocalPosition: {x: 34.542522, y: -3.9568071, z: -12.684016}
+  m_LocalPosition: {x: 34.542522, y: -3.8126788, z: -12.684016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7498,7 +7498,7 @@ Transform:
   m_GameObject: {fileID: 1060916897}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17544599, y: -0.043740675, z: 0.007802984, w: 0.983486}
-  m_LocalPosition: {x: 34.542522, y: -3.9568071, z: -12.684016}
+  m_LocalPosition: {x: 34.542522, y: -3.8126788, z: -12.684016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14190,7 +14190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5820988975018768535, guid: 1661d1f807d8d7f4bb848454bda53e33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7058714
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5820988975018768535, guid: 1661d1f807d8d7f4bb848454bda53e33, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14223,22 +14223,6 @@ PrefabInstance:
     - target: {fileID: 5820988975018768535, guid: 1661d1f807d8d7f4bb848454bda53e33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949483687014680467, guid: 1661d1f807d8d7f4bb848454bda53e33, type: 3}
-      propertyPath: awakeEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949483687014680467, guid: 1661d1f807d8d7f4bb848454bda53e33, type: 3}
-      propertyPath: awakeEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: 50d45e5d7bb57a142a120641ce4eb60f, type: 2}
-    - target: {fileID: 8949483687014680467, guid: 1661d1f807d8d7f4bb848454bda53e33, type: 3}
-      propertyPath: awakeEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Raise
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949483687014680467, guid: 1661d1f807d8d7f4bb848454bda53e33, type: 3}
-      propertyPath: awakeEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: GameAction, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
