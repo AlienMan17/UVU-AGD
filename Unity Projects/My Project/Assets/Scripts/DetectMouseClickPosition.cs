@@ -4,6 +4,9 @@ using UnityEngine.Events;
 public class DetectMouseClickPosition : MonoBehaviour
 {
     private Transform clickedObj;
+    public Transform targetTransform;
+
+    //Constantly detects when the mouse clicks an object
     public void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -21,5 +24,11 @@ public class DetectMouseClickPosition : MonoBehaviour
                 }
             }
         }
+    }
+
+    //Sends the latest mouse position when called
+    public void SendPosToTransform()
+    {
+        targetTransform.position = clickedObj.position;
     }
 }
