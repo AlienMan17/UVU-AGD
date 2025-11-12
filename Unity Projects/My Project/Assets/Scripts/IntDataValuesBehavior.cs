@@ -26,7 +26,7 @@ public class IntDataValuesBehavior : MonoBehaviour
 
     private void EventByIntType()
     {
-        if (intData != null || intData.Value <= 0 || intData.Value >= 4)
+        if (intData == null || intData.Value <= 0 || intData.Value >= 4)
         {
             Debug.Log("Failed to evaluate IntData type. Out of Range, or null.");
         } else

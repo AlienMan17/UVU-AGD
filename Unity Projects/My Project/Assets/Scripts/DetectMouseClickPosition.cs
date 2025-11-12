@@ -1,10 +1,13 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DetectMouseClickPosition : MonoBehaviour
 {
     private Transform clickedObj;
-    public Transform targetTransform;
+    private float delay = 0.1f;
+    private WaitForEndOfFrame waitForRay;
 
     //Constantly detects when the mouse clicks an object
     public void Update()
@@ -15,6 +18,7 @@ public class DetectMouseClickPosition : MonoBehaviour
                 return;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction * 50f, Color.red, 2f);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 var clickable = hit.transform;
@@ -29,6 +33,20 @@ public class DetectMouseClickPosition : MonoBehaviour
     //Sends the latest mouse position when called
     public void SendPosToTransform()
     {
-        targetTransform.position = clickedObj.position;
+        StartCoroutine(DelayedSend());
+    }
+
+    private IEnumerator DelayedSend()
+    {
+        yield return null;
+
+        if (clickedObj == null)
+        {
+            yield break;
+        }
+
+        transform.position = clickedObj.position;
+
+        clickedObj = null;
     }
 }
