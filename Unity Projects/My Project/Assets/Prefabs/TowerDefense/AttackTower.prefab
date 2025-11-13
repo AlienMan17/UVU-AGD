@@ -1,5 +1,126 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1448885626993977584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8419246731386781777}
+  - component: {fileID: 4490306278645546210}
+  - component: {fileID: 4406488344570033842}
+  - component: {fileID: 7222019734597178602}
+  m_Layer: 0
+  m_Name: TowerPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8419246731386781777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448885626993977584}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4710198612682042019}
+  m_Father: {fileID: 7873507833185815148}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4490306278645546210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448885626993977584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801bcea5410c48c4faf889eb36c4be23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookedAtTransformEvent: 1
+  lookedAtEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1615783095819160042}
+        m_TargetAssemblyTypeName: RepeatInstanciateWithDelay, Assembly-CSharp
+        m_MethodName: SpawnSingle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4406488344570033842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448885626993977584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576af90571d73e642b04235ec25c59a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  noMoreTargetEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 127318794208622263}
+        m_TargetAssemblyTypeName: GetNearestObject, Assembly-CSharp
+        m_MethodName: nearestObjectByTag
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Enemy
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 127318794208622263}
+        m_TargetAssemblyTypeName: GetNearestObject, Assembly-CSharp
+        m_MethodName: lookAtNearestTransform
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Enemy
+          m_BoolArgument: 0
+        m_CallState: 2
+  aimDelay: 1
+--- !u!114 &7222019734597178602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448885626993977584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9149b391dc1f8c48ad2c71062c2f50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToSpawn: {fileID: 6368465019476241235, guid: 1ea38b1bb4d6ac647940bc27648d1c2d, type: 3}
+  spawnPoint: {fileID: 4710198612682042019}
+  parent: {fileID: 7873507833185815148}
+  delay: 1.5
+  spawnAmount: 1
 --- !u!1 &3972792808046002087
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,10 +130,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7873507833185815148}
-  - component: {fileID: -6405570082994374388}
-  - component: {fileID: 3356172699753070870}
-  - component: {fileID: 1174441085210688067}
+  - component: {fileID: 127318794208622263}
   - component: {fileID: 1615783095819160042}
+  - component: {fileID: 2483813112159262749}
   m_Layer: 0
   m_Name: AttackTower
   m_TagString: Untagged
@@ -34,10 +154,55 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1874756279933589857}
-  - {fileID: 4710198612682042019}
+  - {fileID: 8419246731386781777}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6405570082994374388
+--- !u!114 &127318794208622263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972792808046002087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801bcea5410c48c4faf889eb36c4be23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookedAtTransformEvent: 1
+  lookedAtEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1615783095819160042}
+        m_TargetAssemblyTypeName: RepeatInstanciateWithDelay, Assembly-CSharp
+        m_MethodName: SpawnSingle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1615783095819160042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972792808046002087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9149b391dc1f8c48ad2c71062c2f50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToSpawn: {fileID: 6368465019476241235, guid: 1ea38b1bb4d6ac647940bc27648d1c2d, type: 3}
+  spawnPoint: {fileID: 4710198612682042019}
+  parent: {fileID: 0}
+  delay: 1.5
+  spawnAmount: 1
+--- !u!114 &2483813112159262749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,7 +218,7 @@ MonoBehaviour:
   noMoreTargetEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1174441085210688067}
+      - m_Target: {fileID: 127318794208622263}
         m_TargetAssemblyTypeName: GetNearestObject, Assembly-CSharp
         m_MethodName: nearestObjectByTag
         m_Mode: 5
@@ -65,9 +230,9 @@ MonoBehaviour:
           m_StringArgument: Enemy
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 2878efc85f3f4b746ab217eb61b6a98c, type: 2}
-        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
-        m_MethodName: Raise
+      - m_Target: {fileID: 127318794208622263}
+        m_TargetAssemblyTypeName: GetNearestObject, Assembly-CSharp
+        m_MethodName: lookAtNearestTransform
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -77,69 +242,7 @@ MonoBehaviour:
           m_StringArgument: Enemy
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3356172699753070870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3972792808046002087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: 2878efc85f3f4b746ab217eb61b6a98c, type: 2}
-  startEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  respondEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1174441085210688067}
-        m_TargetAssemblyTypeName: GetNearestObject, Assembly-CSharp
-        m_MethodName: lookAtNearestTransform
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  respondLateEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  holdTime: 0.1
---- !u!114 &1174441085210688067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3972792808046002087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 801bcea5410c48c4faf889eb36c4be23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1615783095819160042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3972792808046002087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9149b391dc1f8c48ad2c71062c2f50e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objToSpawn: {fileID: 6368465019476241235, guid: 1ea38b1bb4d6ac647940bc27648d1c2d, type: 3}
-  spawnPoint: {fileID: 7873507833185815148}
-  delay: 0.8
-  spawnAmount: 1
+  aimDelay: 1
 --- !u!1 &4278219422503713518
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 4278219422503713518}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0423193, y: -1.1773548, z: -2.1330233}
+  m_LocalPosition: {x: 0, y: -1.1773548, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -259,7 +362,6 @@ GameObject:
   - component: {fileID: 4710198612682042019}
   - component: {fileID: 1526864635608352571}
   - component: {fileID: 5700694187416723994}
-  - component: {fileID: 9160407718721551753}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -275,12 +377,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5115299951010441294}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.33, y: -1, z: -2.11}
-  m_LocalScale: {x: 1, y: 0.75, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -2.15, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.75000006, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7873507833185815148}
+  m_Father: {fileID: 8419246731386781777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &1526864635608352571
 MeshFilter:
@@ -335,26 +437,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &9160407718721551753
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5115299951010441294}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

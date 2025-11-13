@@ -5,19 +5,22 @@ public class RepeatInstanciateWithDelay : MonoBehaviour
 {
     public GameObject objToSpawn;
     public Transform spawnPoint;
+    public Transform parent;
     public float delay;
     public int spawnAmount;
 
     public void SpawnSingle()
     {
-        Instantiate(objToSpawn, spawnPoint);
+        if (parent == null) return;
+        Instantiate(objToSpawn, spawnPoint.position, spawnPoint.rotation, parent);
     }
 
     public void SpawnMany()
     {
+        if (parent == null) return;
         for (int i = 0; i < spawnAmount; i++)
         {
-            Instantiate(objToSpawn, spawnPoint);
+            Instantiate(objToSpawn, spawnPoint.position, spawnPoint.rotation, parent);
         }
     }
 
@@ -31,7 +34,15 @@ public class RepeatInstanciateWithDelay : MonoBehaviour
         for (int i = 0; i < spawnAmount; i++)
         {
             yield return new WaitForSeconds(delay);
-            Instantiate(objToSpawn, spawnPoint);
+
+            if (parent != null) 
+            {
+                Instantiate(objToSpawn, spawnPoint.position, spawnPoint.rotation, parent);
+            }
+            else
+            {
+                Instantiate(objToSpawn, spawnPoint.position, spawnPoint.rotation);
+            }
         }
     }
 }
