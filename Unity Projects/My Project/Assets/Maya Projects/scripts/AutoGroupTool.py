@@ -1,6 +1,5 @@
 import maya.cmds as cmds
 
-#function
 def AutoGroup():
 
 #get a list of the slected objects
