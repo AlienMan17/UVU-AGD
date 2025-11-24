@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +10,15 @@ public class CompareIntData : MonoBehaviour
     public int requiredValueOptional;
     public IntData intData;
     public GameAction action;
+    public bool responseHasDelay;
+    public float delay = 0.1f;
+    private WaitForSeconds waitObj;
+
+
+    private void Awake()
+    {
+        waitObj = new WaitForSeconds(delay);
+    }
 
     private void OnEnable()
     {
@@ -32,7 +42,25 @@ public class CompareIntData : MonoBehaviour
 
     private void Response()
     {
+        if (responseHasDelay)
+        {
+            StartCoroutine(delayedResponse());
+        } 
+        else
+        {
+            CompareData();
+        }
+    }
 
+    private IEnumerator delayedResponse()
+    {
+        yield return waitObj;
+
+        CompareData();
+    }
+
+    private void CompareData()
+    {
         if (intData == null)
         {
             Debug.Log("IntData is invalid");
@@ -44,7 +72,7 @@ public class CompareIntData : MonoBehaviour
             {
                 InvokeEvent(responseEvent);
             }
-        } 
+        }
         else
         {
             if (requiredValueOptional <= intData.Value)
