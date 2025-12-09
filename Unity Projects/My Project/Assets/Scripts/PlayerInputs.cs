@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.UI;
 
 public class PlayerInputs : MonoBehaviour
 {
@@ -16,12 +17,12 @@ public class PlayerInputs : MonoBehaviour
     private void Start()
     {
         interactionAction = inputActions.FindAction("Player/Interact", throwIfNotFound: true);
+        Debug.Log("Found " +  interactionAction);
         interactionAction.performed += OnInteraction;
     }
 
     private void OnEnable()
     {
-        interactionAction.Enable();
         if (action != null)
             action.RaiseNoArgs += Respond;
     }
@@ -41,6 +42,7 @@ public class PlayerInputs : MonoBehaviour
     {
         if (context.ReadValue<bool>() && canInteract)
         {
+            Debug.Log("Button pressed");
             Interact();
         }
     }
@@ -48,5 +50,6 @@ public class PlayerInputs : MonoBehaviour
     private void Interact()
     {
         interactButtonPressed.Invoke();
+
     }
 }
