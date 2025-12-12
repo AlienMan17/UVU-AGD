@@ -1,5 +1,5 @@
 import maya.cmds as cmds
-import SequentialRenamer
+import Renamer
 import SequentialRecolorer
 
 class ModifyObject():
@@ -12,20 +12,34 @@ class ModifyObject():
 
         self.nameWindow = cmds.window(self.nameWindow, title="Renamer", widthHeight=(400, 400), resizeToFitChildren=True)
 
-        mColumn = cmds.columnLayout(adjustableColumns=True, parent=self.nameWindow)
+        mColumn = cmds.columnLayout(adjustableColumn=True, parent=self.nameWindow)
         self.stringFormatInput = cmds.textField(parent=mColumn, placeholderText='Enter a formatted string. ex: "L_Leg_##_Ctrl", or "Spine_###_Jnt"')
-        self.runButton = cmds.button(parent=mColumn, label="Rename", command=lambda *args: SequentialRenamer.renameSelection(self.stringFormatInput))
+        self.renameButton = cmds.button(parent=mColumn, label="Rename", command=lambda *args: self.renameButtonAction())
+        cmds.showWindow(self.nameWindow)
+
+    def renameButtonAction(self):
+        stringFormat = cmds.textField(self.stringFormatInput, q=True, text=True)
+        Renamer.renameSelection(stringFormat)
     
     def OpenRecolorer(self):
         self.Delete(self.colorWindow)
-        self.color = ""
+        self.color = cmds.colorIndex(0, q=True)
+        self.colorIndex = 0
 
         self.colorWindow = cmds.window(self.colorWindow, title="Color Changer", widthHeight=(400, 400), resizeToFitChildren=True)
 
-        mColumn = cmds.columnLayout(adjustableColumns=True, parent=self.colorWindow)
-        self.selectedColor = cmds.text(self.color, parent=mColumn)
-        #self.colorSlider = cmds.intslider()
+        mColumn = cmds.columnLayout(adjustableColumn=True, parent=self.colorWindow)
+        self.selectedColor = cmds.canvas("ColorDisplay", parent=mColumn, rgbValue=self.color, visible=True)
+        self.colorSlider = cmds.intSlider("ColorIndexSlider", minValue=1, maxValue=32)
+        cmds.intSlider("ColorIndexSlider", edit=True, dragCommand=lambda *args: self.updateUIColor())
+        self.recolorButton = cmds.button(parent=mColumn, label="Recolor", command=lambda *args: SequentialRecolorer.Recolor(self.colorIndex))
+        cmds.showWindow(self.colorWindow)
 
-    def Delete(windowName):
+    def updateUIColor(self):
+        self.colorIndex = cmds.intSlider("ColorIndexSlider", query=True, value=True)
+        self.color = cmds.colorIndex(self.colorIndex, q=True)
+        cmds.canvas("ColorDisplay", edit=True, rgbValue=self.color)
+
+    def Delete(self, windowName):
         if (cmds.window(windowName, exists=True)):
             cmds.deleteUI(windowName)
