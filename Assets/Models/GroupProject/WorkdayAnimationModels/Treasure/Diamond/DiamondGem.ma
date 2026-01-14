@@ -1,19 +1,19 @@
 //Maya ASCII 2025ff03 scene
 //Name: DiamondGem.ma
-//Last modified: Tue, Jan 13, 2026 10:38:09 AM
+//Last modified: Tue, Jan 13, 2026 01:30:27 PM
 //Codeset: 1252
 requires maya "2025ff03";
-requires -nodeType "materialxStack" -dataType "MxDocumentStackData" "LookdevXMaya" "1.6.0";
 requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
 		 "mtoa" "5.4.8.2";
+requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "05CC288A-412C-E4BB-082B-068825B8BAC5";
+fileInfo "UUID" "1DB20EF6-43DF-C700-5C4A-8B868871F6B9";
 createNode transform -s -n "persp";
 	rename -uid "FC05ECF8-4D66-83F2-6F18-DFBE8C7F14F0";
 	setAttr ".v" no;
@@ -222,27 +222,21 @@ createNode mesh -n "DiamondShape" -p "Diamond";
 		23 0 
 		24 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "materialXStack1";
-	rename -uid "E0E3ABD4-4BB9-A1AD-9BBF-2C9B7405171E";
-createNode materialxStack -n "materialXStackShape1" -p "materialXStack1";
-	rename -uid "EDF4A429-40FD-549A-FB70-9594E108B5EE";
-	setAttr -k off ".v";
-	setAttr ".docs" -type "string" "[\n    {\n        \"document\": \"AAABP3icdZBBCoMwEEX3nmKYAzSVbrpIlIJLsdALSNqMNGCixFjs7RtsLBLochj+mzefl4vp4UVu0oMVmB+OWBYZN9KT07Jf9qvTGYsMgPfS3Ml5sNKQwDjlCP49hnmaXScfND2lIodgB0WKOoGXW3Otq7ap2phAYCsuBraTEVsn2G29IwZUkl39AlLbcd78Ep+/kuk3XzmWXAjdsF85RfYBthBr3g==\",\n        \"name\": \"document1\"\n    },\n    {\n        \"document\": \"AAABbHicdZDPCoMwDIfvPkXIA8zJLjv4h4HH4WA+gIQ1MkGrtHW4t5+u69CCxzTp7/uSOJu6Fl6sdNPLBKPDEbM0iDsyrBpqp3XrdMY0AIi1ISlIiUqPqqYHg6SOE/SfIwTzHpaGrfWTBCsE2QsWXCd4uRe3a14VeeV/RQgtyZbO5gcq3XTpgdzcirGEb0O+O8zZjRxG49S3hrvau4ta3dBDzYcM/5dMgw94Xn44\",\n        \"name\": \"document2\"\n    }\n]\n";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "5FF5C649-48EF-50C7-CCB8-41943C026E56";
+	rename -uid "18F4D406-4F26-ACE8-F575-4DA5317C5FE5";
 	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "F638BA08-44B3-5A75-32F7-4FBCB34D151C";
+	rename -uid "8B1252CE-47BE-3879-77C4-D5878F01F6AD";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "91940229-449E-BFB8-B5D9-CC8B77B7780F";
+	rename -uid "D21FA6E5-410B-DDA4-2FB7-37A29262C31F";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "878C69F7-4ADD-1B64-4663-67A8F0CAC8BA";
+	rename -uid "60A6B339-4CBC-FCC5-6B8F-56A34EC1109A";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "03733BAB-4684-AF14-C361-D8B0E4C61CE5";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "ED98D64A-4455-F129-A2FB-799881DBF8FE";
+	rename -uid "D289A102-4D79-5712-CFC2-4987DC8D168E";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "2DF5F705-4FBA-B1B6-913C-12A16FD10513";
 	setAttr ".g" yes;

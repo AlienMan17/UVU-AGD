@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: GemShard.ma
-//Last modified: Tue, Jan 13, 2026 10:41:27 AM
+//Last modified: Tue, Jan 13, 2026 01:32:09 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires "stereoCamera" "10.0";
@@ -12,7 +12,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "4E830089-4F91-FC75-CB6C-A49E65AF836D";
+fileInfo "UUID" "0CF90126-4282-DA72-0E23-57B6B594189C";
 createNode transform -s -n "persp";
 	rename -uid "8D1BA719-4AC1-7866-68F3-0B985113CE05";
 	setAttr ".v" no;
@@ -77,9 +77,9 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode transform -n "pCone1";
+createNode transform -n "GemShard";
 	rename -uid "ECA5EB82-4CD1-4748-C1E4-ED9026A86329";
-createNode mesh -n "pConeShape1" -p "pCone1";
+createNode mesh -n "GemShardShape" -p "GemShard";
 	rename -uid "33D5F211-44A6-9240-A38A-ADB0289BE777";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -160,20 +160,20 @@ createNode mesh -n "pConeShape1" -p "pCone1";
 		1 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "798B618B-49E3-C684-69D5-108C52092735";
+	rename -uid "377FCA88-46CF-398F-5130-E4A2353BCCA0";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "3FE07FAD-4F77-A30F-B71C-BD96747A52C0";
+	rename -uid "97B563F8-47D7-5D6B-9444-EBA020E4B22E";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "48AE04E6-448A-DD80-0D0F-3A96FC3E3C7E";
+	rename -uid "5EBA9A79-47C6-6DC7-1694-DB9CA1CA7399";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "35394ED9-41AB-024A-3DE7-1B9AAA4E5586";
+	rename -uid "16F5FCDC-49E1-1EF1-F21D-8BB9FFEF0E23";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "3045473D-4F85-0512-1EE9-6097CBFAC12C";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "3FD010AA-41AB-FBEA-808B-F6B6602FD273";
+	rename -uid "951E4D64-4614-4944-4DB9-59B132E4EC04";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "5A56B62B-4AEB-D315-5B60-8C9E0A4D4D68";
 	setAttr ".g" yes;
@@ -321,7 +321,7 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
 connectAttr "GemShardMat.oc" "standardSurface2SG.ss";
-connectAttr "pConeShape1.iog" "standardSurface2SG.dsm" -na;
+connectAttr "GemShardShape.iog" "standardSurface2SG.dsm" -na;
 connectAttr "standardSurface2SG.msg" "materialInfo1.sg";
 connectAttr "GemShardMat.msg" "materialInfo1.m";
 connectAttr "GemShardMat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
