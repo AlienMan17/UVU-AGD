@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
-//Name: Generic_Primitive_Rig.ma
-//Last modified: Thu, Jan 15, 2026 03:02:05 PM
+//Name: Generic_Primitive_Rig_Ungrouped.ma
+//Last modified: Thu, Jan 15, 2026 03:01:45 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires "stereoCamera" "10.0";
@@ -13,7 +13,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "6D5569AA-46C5-0EFB-4E38-CDACBEEC12C8";
+fileInfo "UUID" "3C057186-4372-F5EB-09B2-F684AE668BD6";
 createNode transform -s -n "persp";
 	rename -uid "7CC6EACD-401A-54E2-DFD4-20877AD336FD";
 	setAttr ".v" no;
@@ -2855,4 +2855,4 @@ connectAttr "groupId73.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId93.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId101.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId102.msg" ":initialShadingGroup.gn" -na;
-// End of Generic_Primitive_Rig.ma
+// End of Generic_Primitive_Rig_Ungrouped.ma
