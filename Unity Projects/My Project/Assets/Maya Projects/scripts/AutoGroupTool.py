@@ -26,7 +26,7 @@ def AutoGroup():
 
 #move and rotate the groups to their respective objects
     for i in range(len(selectedObjs)):
-        cmds.parent(selectedObjs[i], groups[i], relative=True)
+        cmds.parent(selectedObjs[i], groups[i], absolute=True)
 
 #run the function
 AutoGroup()
