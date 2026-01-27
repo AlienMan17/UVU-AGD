@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: CandyTypeList
+  m_EditorClassIdentifier: Assembly-CSharp::GameObjectsLists
+  objects:
+  - {fileID: 8473680253419082147, guid: f13360a05ae95464894903ae15db0156, type: 3}
+  - {fileID: 5266701848546794604, guid: 44ec824e08dbc5f45877f4f1ac0e617d, type: 3}
+  - {fileID: 5901590515640378975, guid: 1a00a1460a4980c4c9adc51ec4841a3a, type: 3}
