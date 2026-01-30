@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 775241432197777184}
   - component: {fileID: 3840260433530330151}
   - component: {fileID: 1325919837539053882}
+  - component: {fileID: -6175079747349383812}
+  - component: {fileID: 3138242669190553304}
   m_Layer: 0
   m_Name: Mint
   m_TagString: Untagged
@@ -110,3 +112,51 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &-6175079747349383812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901590515640378975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 11400000, guid: dbecbdd7fe137334ea2413547d09d850, type: 2}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondLateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3138242669190553304}
+        m_TargetAssemblyTypeName: TransformBehaviour, Assembly-CSharp
+        m_MethodName: GetPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f53dd744700899443ad8db05ef3c2c55, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Vector3Data, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  holdTime: 0.1
+--- !u!114 &3138242669190553304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901590515640378975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6b48aef42944829b81bac15c56ca10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sendTransformAction: {fileID: 11400000, guid: efb8ddc5b9e870b4ab5a3d6fc118046d, type: 2}
