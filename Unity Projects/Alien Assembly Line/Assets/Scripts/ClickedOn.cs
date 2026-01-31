@@ -9,6 +9,8 @@ public class ClickedOn : MonoBehaviour
 
     public void OnMouseDown()
     {
+        //Debug.Log($"OnMouseDown hit: '{name}' at world pos {transform.position}", this);
+        
         if (useSecondEvent)
         {
             if (eventNum == 0)
@@ -25,7 +27,6 @@ public class ClickedOn : MonoBehaviour
         else
         {
             onClickEvent.Invoke();
-            Debug.Log("Clicked!");
         }
     }
 }

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3840260433530330151}
   - component: {fileID: 1325919837539053882}
   - component: {fileID: -6175079747349383812}
-  - component: {fileID: 3138242669190553304}
+  - component: {fileID: 4499537722013061626}
+  - component: {fileID: -2733856176446535073}
   m_Layer: 0
   m_Name: Mint
   m_TagString: Untagged
@@ -30,9 +31,9 @@ Transform:
   m_GameObject: {fileID: 5901590515640378975}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.8791129, y: -2.91, z: 0.46}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.22402, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -130,24 +131,24 @@ MonoBehaviour:
       m_Calls: []
   respondEvent:
     m_PersistentCalls:
-      m_Calls: []
-  respondLateEvent:
-    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3138242669190553304}
-        m_TargetAssemblyTypeName: TransformBehaviour, Assembly-CSharp
-        m_MethodName: GetPosition
-        m_Mode: 2
+      - m_Target: {fileID: 4499537722013061626}
+        m_TargetAssemblyTypeName: Vector3TransformBehaviour, Assembly-CSharp
+        m_MethodName: SetPosition
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f53dd744700899443ad8db05ef3c2c55, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Vector3Data, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  respondLateEvent:
+    m_PersistentCalls:
+      m_Calls: []
   holdTime: 0.1
---- !u!114 &3138242669190553304
+--- !u!114 &4499537722013061626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +157,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 5901590515640378975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae6b48aef42944829b81bac15c56ca10, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e7390177834e47399b228d059ab08f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendTransformAction: {fileID: 11400000, guid: efb8ddc5b9e870b4ab5a3d6fc118046d, type: 2}
+  vector3Data: {fileID: 11400000, guid: f53dd744700899443ad8db05ef3c2c55, type: 2}
+--- !u!54 &-2733856176446535073
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901590515640378975}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
