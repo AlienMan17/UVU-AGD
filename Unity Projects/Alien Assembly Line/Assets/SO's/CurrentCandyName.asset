@@ -9,19 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6df0c6962af14c60b2d5c35ebd9c64c, type: 3}
-  m_Name: CandyType
+  m_Script: {fileID: 11500000, guid: 6416ec41dbe0c426aa40a98cd756c9cd, type: 3}
+  m_Name: CurrentCandyName
   m_EditorClassIdentifier: 
-  value: 1
-  minValue: 0
-  maxValue: 3
-  valueOutOfRange:
-    m_PersistentCalls:
-      m_Calls: []
+  value: Candybar
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 61437a881009c6d4f9858f481155f057, type: 2}
+      - m_Target: {fileID: 11400000, guid: 0979a10f7f65bae4d8375d6d80a6d87d, type: 2}
         m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 1
@@ -33,6 +28,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onValueZero:
-    m_PersistentCalls:
-      m_Calls: []

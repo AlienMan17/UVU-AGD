@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: CandyList
-  m_EditorClassIdentifier: Assembly-CSharp::GameObjectsLists
+  m_Script: {fileID: 11500000, guid: ffcea86ea7bb95e4ca6b0f2a813fd092, type: 3}
+  m_Name: CandyTypeList
+  m_EditorClassIdentifier: 
   objects:
   - {fileID: 5266701848546794604, guid: 44ec824e08dbc5f45877f4f1ac0e617d, type: 3}
   - {fileID: 8473680253419082147, guid: f13360a05ae95464894903ae15db0156, type: 3}
