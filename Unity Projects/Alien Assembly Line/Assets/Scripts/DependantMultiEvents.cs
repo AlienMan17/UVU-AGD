@@ -27,12 +27,16 @@ public class DependantMultiEvents : MonoBehaviour
     public void RaiseEvent()
     {
         events[iterationCnt].Invoke();
-        iterationCnt++;
     }
     
     public void ResetIteration()
     {
         iterationCnt = 0;
+    }
+    
+    public void IncrementIteration()
+    {
+        iterationCnt++;
     }
     
     public void SetIndex(int index)
