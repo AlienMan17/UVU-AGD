@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2489c055934a3934780169cd0f014022, type: 2}
   - {fileID: 11400000, guid: f7ae752d11bf1f9438b11c3f47089a95, type: 2}
   - {fileID: 11400000, guid: bda29a59c50f394469b298a6515ec6a6, type: 2}
+  indexer: {fileID: 11400000, guid: 96da144240efcde41afe6d0214c44a9c, type: 2}

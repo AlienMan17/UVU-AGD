@@ -43,4 +43,9 @@ public class DependantMultiEvents : MonoBehaviour
     {
         iterationCnt = index;
     }
+
+    public void SetIndex(IntData index)
+    {
+        iterationCnt = index.Value;
+    }
 }

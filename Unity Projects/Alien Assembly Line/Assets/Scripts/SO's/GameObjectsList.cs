@@ -16,4 +16,9 @@ public class GameObjectsList : ScriptableObject
     {
         objects[index] = null;
     }
+
+    public void ClearList()
+    {
+        objects = null;
+    }
 }
