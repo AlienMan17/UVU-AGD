@@ -1151,6 +1151,7 @@ GameObject:
   - component: {fileID: 330313696}
   - component: {fileID: 330313699}
   - component: {fileID: 330313698}
+  - component: {fileID: 330313700}
   m_Layer: 0
   m_Name: Chute
   m_TagString: Untagged
@@ -1345,6 +1346,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vector3Data: {fileID: 11400000, guid: f53dd744700899443ad8db05ef3c2c55, type: 2}
+--- !u!114 &330313700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330313691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 11400000, guid: 2fd5e2486c260d94ba2d1b72d173a981, type: 2}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondLateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 330313698}
+        m_TargetAssemblyTypeName: DestroyOtherObjectBehaviour, Assembly-CSharp
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  holdTime: 0.01
 --- !u!1 &365179887
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,6 +4729,7 @@ GameObject:
   - component: {fileID: 1505531050}
   - component: {fileID: 1505531052}
   - component: {fileID: 1505531053}
+  - component: {fileID: 1505531054}
   m_Layer: 0
   m_Name: Press
   m_TagString: Untagged
@@ -4889,6 +4926,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useOtherCaller: 1
+--- !u!114 &1505531054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505531045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 11400000, guid: 2fd5e2486c260d94ba2d1b72d173a981, type: 2}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondLateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1505531053}
+        m_TargetAssemblyTypeName: DestroyOtherObjectBehaviour, Assembly-CSharp
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  holdTime: 0.01
 --- !u!1 &1522388983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,6 +5436,7 @@ GameObject:
   - component: {fileID: 1671284551}
   - component: {fileID: 1671284553}
   - component: {fileID: 1671284554}
+  - component: {fileID: 1671284555}
   m_Layer: 0
   m_Name: Mixer
   m_TagString: Untagged
@@ -5517,18 +5590,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1671284554}
-        m_TargetAssemblyTypeName: DestroyOtherObjectBehaviour, Assembly-CSharp
-        m_MethodName: Call
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onSecondClick:
     m_PersistentCalls:
       m_Calls: []
@@ -5560,6 +5621,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useOtherCaller: 1
+--- !u!114 &1671284555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671284546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 11400000, guid: 2fd5e2486c260d94ba2d1b72d173a981, type: 2}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondLateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1671284554}
+        m_TargetAssemblyTypeName: DestroyOtherObjectBehaviour, Assembly-CSharp
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  holdTime: 0.01
 --- !u!1 &1687949488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6222,6 +6318,7 @@ GameObject:
   - component: {fileID: 1812736739}
   - component: {fileID: 1812736738}
   - component: {fileID: 1812736737}
+  - component: {fileID: 1812736741}
   m_Layer: 0
   m_Name: WrappingTable
   m_TagString: Untagged
@@ -6387,14 +6484,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1812736740}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 1812736739}
+        m_TargetAssemblyTypeName: SimpleCompareIntData, Assembly-CSharp
+        m_MethodName: CompareByInt
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6416,6 +6513,41 @@ MonoBehaviour:
       m_Calls: []
   useSecondEvent: 0
   clickable: 1
+--- !u!114 &1812736741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812736732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 11400000, guid: 2fd5e2486c260d94ba2d1b72d173a981, type: 2}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  respondLateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1812736737}
+        m_TargetAssemblyTypeName: DestroyOtherObjectBehaviour, Assembly-CSharp
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  holdTime: 0.01
 --- !u!1 &1813096517
 GameObject:
   m_ObjectHideFlags: 0
