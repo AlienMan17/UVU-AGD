@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: LargeKitchenPot.ma
-//Last modified: Sat, Apr 04, 2026 07:49:22 PM
+//Last modified: Sat, Apr 04, 2026 08:03:34 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires "stereoCamera" "10.0";
@@ -12,12 +12,12 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26200)";
-fileInfo "UUID" "CA8BC65B-4C8D-4F1D-B8BB-C19C529A1546";
+fileInfo "UUID" "C3CA4CEA-49E2-E860-7835-0FA0457FF517";
 createNode transform -s -n "persp";
 	rename -uid "87B31830-405A-B282-B50A-99B1F6EB9B33";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -39.097925339787651 82.519533425851847 68.65643760653839 ;
-	setAttr ".r" -type "double3" -39.600000000002346 -28.400000000000251 0 ;
+	setAttr ".t" -type "double3" -51.671229183684197 67.873182372774863 72.42049000310567 ;
+	setAttr ".r" -type "double3" -28.200000000001346 -35.200000000000806 0 ;
 	setAttr ".rpt" -type "double3" -4.0848307464935855e-16 2.9514769727634974e-16 -1.1910232409412511e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "99215245-4C68-CCD1-BDFA-799CBA4DC415";
