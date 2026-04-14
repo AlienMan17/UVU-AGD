@@ -12,6 +12,15 @@ public class GameObjectsList : ScriptableObject
         objects[objects.Length - 1] = obj;
     }
 
+    public void AddGameObjectToListByName(StringData objName)
+    {
+        GameObject obj = GameObject.Find(objName.Value);
+        if (obj != null)
+        {
+            AddGameObjectToList(obj);
+        }
+    }
+
     public void RemoveGameObjectFromList(GameObject obj, int index)
     {
         objects[index] = null;
