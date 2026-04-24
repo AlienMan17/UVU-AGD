@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4038541647778437386}
   - component: {fileID: 2292097431620696171}
   - component: {fileID: 3781449232781859718}
-  - component: {fileID: -2095355706497204452}
   - component: {fileID: 6805592780428926984}
+  - component: {fileID: -2095355706497204452}
   - component: {fileID: -3482593122750958471}
   m_Layer: 0
   m_Name: MintIngrediant
@@ -113,19 +113,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &-2095355706497204452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860039270651965351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e7390177834e47399b228d059ab08f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vector3Data: {fileID: 11400000, guid: f53dd744700899443ad8db05ef3c2c55, type: 2}
 --- !u!114 &6805592780428926984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: 2fd5e2486c260d94ba2d1b72d173a981, type: 2}
+  action: {fileID: 11400000, guid: 4bb1e77cf1c68b44396d8d3827131df9, type: 2}
   startEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -161,6 +148,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   holdTime: 0.1
+--- !u!114 &-2095355706497204452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860039270651965351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7390177834e47399b228d059ab08f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vector3Data: {fileID: 11400000, guid: f53dd744700899443ad8db05ef3c2c55, type: 2}
 --- !u!54 &-3482593122750958471
 Rigidbody:
   m_ObjectHideFlags: 0

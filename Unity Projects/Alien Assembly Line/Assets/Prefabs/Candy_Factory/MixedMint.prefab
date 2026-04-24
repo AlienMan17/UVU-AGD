@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7400111707682749135}
   - component: {fileID: 5662064137812043307}
   - component: {fileID: 7518705347343512746}
-  - component: {fileID: 2627703055093019162}
   m_Layer: 0
   m_Name: MixedMintPart
   m_TagString: Untagged
@@ -87,29 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2627703055093019162
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7279293887584945633}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &8531361374790412245
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65180f705bb904ee98a80edc6dcf0d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: 2fd5e2486c260d94ba2d1b72d173a981, type: 2}
+  action: {fileID: 11400000, guid: 4bb1e77cf1c68b44396d8d3827131df9, type: 2}
   startEvent:
     m_PersistentCalls:
       m_Calls: []
